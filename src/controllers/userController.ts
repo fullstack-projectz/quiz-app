@@ -5,15 +5,35 @@
  *
  * @author meganathan
  */
-
 import { Request, Response } from 'express';
-import * as userService from '../services/userService';
+import { createUserService } from '../services/userService';
 
 export const createUser = async (req: Request, res: Response) => {
   try {
-    const newUser = await userService.createUser(req.body);
-    res.status(200).json({ newUser });
+    const user = req.body;
+
+    // Input validation
+    if (!user.username || !user.email || !user.password) {
+      return res.status(400).json({
+        status: 400,
+        message: 'Missing required fields: username, email, or password',
+      });
+    }
+
+    // Call the service to create the user
+    const newUser = await createUserService(user);
+
+    return res.status(201).json({
+      status: 201,
+      message: 'User created successfully',
+      data: newUser,
+    });
   } catch (error) {
-    res.status(500).json({ message: 'Error creating quiz', error });
+    console.error('Error creating user:', error);
+    return res.status(500).json({
+      status: 500,
+      message: 'An error occurred while creating the user',
+      error: error || 'Internal Server Error',
+    });
   }
 };
