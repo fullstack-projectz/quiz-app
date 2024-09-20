@@ -13,7 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 // INITIAL url to get the api
-app.use('/api/v1/users', () => {});
+app.use('/api/v1/', () => {});
 
 // run the server
 app.listen(PORT, () => {

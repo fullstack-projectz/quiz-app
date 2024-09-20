@@ -5,20 +5,20 @@
  * @author
  */
 
-import mysql from 'mysql2';
+import mysql from 'mysql2/promise';
+import dotenv from 'dotenv';
 // import { classicNameResolver } from 'typescript';
+dotenv.config();
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'root',
-  database: 'todo_app',
+const pool = mysql.createPool({
+  host: process.env.DB_HOST || 'localhost',
+  port: Number(process.env.DB_PORT) || 3306,
+  user: process.env.DB_USER || 'root',
+  password: process.env.DB_PASSWORD || 'root',
+  database: process.env.DB_NAME || 'todo_app',
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
 });
 
-connection.connect((err) => {
-  if (err) {
-    console.log(err);
-    process.exit(1);
-  }
-  console.log('DB is connected');
-});
+export default pool;
