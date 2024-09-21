@@ -3,12 +3,10 @@
  * will be there
  */
 
-export interface Quiz {
-  id?: number;
+export interface Question {
+  id?: number; // Optional for new questions
   content: string;
-  questions: {
-    question: string;
-    options: string[];
-    answer: string;
-  }[];
+  options: string[]; // This should match your JSON type in SQL
+  correct_answer: string;
+  quiz_id: number;
 }

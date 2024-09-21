@@ -13,6 +13,7 @@ import {
   updateUserService,
 } from '../services/userService';
 
+// create a new user
 export const createUser = async (req: Request, res: Response) => {
   try {
     const user = req.body;
