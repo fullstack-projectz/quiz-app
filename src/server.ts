@@ -21,7 +21,7 @@ app.use(express.json());
 const PORT = process.env.PORT || 8080;
 
 // INITIAL url to get the api
-app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/user', userRoutes);
 
 // run the server
 app.listen(PORT, () => {

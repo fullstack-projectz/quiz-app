@@ -5,7 +5,7 @@
 
 export interface Quiz {
   id?: number;
-  title: string;
+  content: string;
   questions: {
     question: string;
     options: string[];

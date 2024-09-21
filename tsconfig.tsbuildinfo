@@ -1,1 +1,1 @@
-{"root":["./src/server.ts","./src/config/database.ts","./src/controllers/usercontroller.ts","./src/models/quiz.ts","./src/models/user.ts","./src/routes/userroutes.ts","./src/services/userservice.ts"],"version":"5.6.2"}
+{"root":["./src/server.ts","./src/config/database.ts","./src/controllers/usercontroller.ts","./src/dao/userdao.ts","./src/models/question.ts","./src/models/user.ts","./src/routes/userroutes.ts","./src/services/userservice.ts"],"version":"5.6.2"}
