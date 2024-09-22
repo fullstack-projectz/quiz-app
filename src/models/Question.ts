@@ -6,7 +6,7 @@
 export interface Question {
   id?: number; // Optional for new questions
   content: string;
-  options: string[]; // This should match your JSON type in SQL
+  options: [];
   correct_answer: string;
   quiz_id: number;
 }
