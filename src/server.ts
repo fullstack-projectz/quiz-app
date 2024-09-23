@@ -8,6 +8,7 @@
 import express from 'express';
 import userRoutes from './routes/UserRoutes';
 import questionRoutes from './routes/QuestionRoutes';
+import quizRoutes from './routes/QuizRoutes';
 import morgan from 'morgan';
 
 // When server starts the db will connect
@@ -26,6 +27,7 @@ app.use(morgan('dev'));
 // INITIAL url to get the api
 app.use('/api/v1/user', userRoutes);
 app.use('/api/v1/question', questionRoutes);
+app.use('/api/v1/quiz', quizRoutes);
 
 // run the server
 app.listen(PORT, () => {
